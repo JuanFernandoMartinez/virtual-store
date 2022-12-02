@@ -1,25 +1,29 @@
 import React from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-export default class Login extends React.Component{
+import {unsignedPost} from "../../utils/communicator";
+import {URLSessions} from "../../utils/URLManager";
+import {saveCookie} from "../../utils/sessionManager";
+
+export default class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             form: {
-                email: '',
+                username: '',
                 password: ''
             }
         }
     }
 
-    handleChange = e =>{
-        if (e.target.name === 'email'){
+    handleChange = e => {
+        if (e.target.name === 'username') {
             this.setState({
-                form : {
-                    ...this.state.form, email:e.target.value
+                form: {
+                    ...this.state.form, username: e.target.value
                 }
             })
-        }else{
+        } else {
             this.setState({
                 form: {
                     ...this.state.form,
@@ -32,9 +36,19 @@ export default class Login extends React.Component{
     }
 
 
-    handleSubmit = e =>{
+    handleSubmit = async e => {
         e.preventDefault()
-        console.log(this.state.form)
+
+        let response = await unsignedPost(URLSessions.LOGIN, this.state.form)
+        saveCookie(response)
+        this.setState({
+            form: {
+                username : "",
+                password: ""
+            }
+        })
+
+        this.props.roleMethod()
     }
 
 
@@ -45,8 +59,8 @@ export default class Login extends React.Component{
                 <h1 className="text-center">Sign in</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className="w-75 m-auto">
-                        <TextField  label="Email" variant="outlined" type="email"
-                                    onChange={this.handleChange} name="email" value={this.state.form.email}
+                        <TextField  label="Email or Phone number" variant="outlined" type="text"
+                                    onChange={this.handleChange} name="username" value={this.state.form.username}
                                     className="w-100 "
                         />
                     </div>

@@ -3,7 +3,7 @@ import LoggedMenu from "./components/menu/LoggedMenu";
 import UnLoggedMenu from "./components/menu/UnloggedMenu";
 import React from "react";
 import Header from "./components/bootstrapComponents/Header";
-import {getCookies} from "./utils/sessionManager";
+import {getRole} from "./utils/sessionManager";
 import AdminMenu from "./components/app/admin/AdminMenu";
 
 
@@ -13,7 +13,8 @@ class App extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      page: 1
+      page: 1,
+      role: false
     }
   }
 
@@ -22,9 +23,14 @@ class App extends React.Component{
     else this.setState({page:0})
   }
 
+  changeRole = e=>{
+    this.setState({role: true})
+  }
+
   render(){
-    let roll = getCookies()
-    if (roll === "user"){
+    let roll = getRole()
+    console.log(roll)
+    if (roll === "client"){
       return (
           <Header>
             <LoggedMenu></LoggedMenu>
@@ -35,7 +41,7 @@ class App extends React.Component{
        <div><AdminMenu></AdminMenu>  </div>
       </Header>
     }else return <Header>
-       <UnLoggedMenu></UnLoggedMenu>
+       <UnLoggedMenu method = {this.changeRole}></UnLoggedMenu>
     </Header>
   }
 }

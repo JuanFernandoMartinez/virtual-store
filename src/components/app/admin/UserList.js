@@ -14,6 +14,8 @@ export default function UserList(){
 
     const [users, setUsers] = useState([])
 
+
+
     useEffect(()=>{
         axios
             .get("https://swapi.dev/api/people")
@@ -24,6 +26,9 @@ export default function UserList(){
             .catch(err=>{
                 console.log(err)
             })
+
+
+
     },[])
 
     return <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', elevation: 16 }} className="shadow">
@@ -34,7 +39,7 @@ export default function UserList(){
                         <AccountCircleIcon></AccountCircleIcon>
                     </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary={e.name} secondary={e.birth_year} />
+                <ListItemText primary={e.name} secondary="usario de la aplicación" />
             </ListItem>)}
 
         </List>

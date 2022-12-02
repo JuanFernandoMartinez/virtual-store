@@ -2,47 +2,47 @@
 import React from "react";
 import Navbar from "../../bootstrapComponents/Navbar";
 import UserList from "./UserList";
+import CreateItem from "./CreateItem";
 
 export default class AdminMenu extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            page: 2
+            page: 0
         }
     }
 
     pageA = e=>{this.setState({page:0})}
     pageB = e=>{this.setState({page:1})}
-    pageC = e=>{this.setState({page:2})}
-    pageD = e=>{this.setState({page:3})}
+
     navbarOptions = [
         {
-            name: "Agregar",
+            name: "Usuarios",
             page: this.pageA
         },
         {
-            name: "Editar",
+            name: "Productos",
             page: this.pageB
         },
-        {
-            name: "Usuarios",
-            page: this.pageC
-        },
-        {
-            name: "Productos",
-            page: this.pageD
-        }
+
+
     ]
 
     render(){
        let currentPage = this.state.page
         switch (currentPage){
-            case 2:
+            case 0:
                 return <div>
                     <Navbar options = {this.navbarOptions} >
                         <UserList></UserList>
                     </Navbar>
                 </div>
+
+            case 1: return <div>
+                <Navbar options = {this.navbarOptions} >
+                    <CreateItem></CreateItem>
+                </Navbar>
+            </div>
 
             default: break;
         }

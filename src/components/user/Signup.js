@@ -2,6 +2,10 @@
 import React from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+
+import {unsignedPost} from "../../utils/communicator";
+import {URLSessions} from "../../utils/URLManager";
+
 export default class Signup extends React.Component{
     constructor(props) {
         super(props);
@@ -11,7 +15,8 @@ export default class Signup extends React.Component{
                 email: "",
                 password: "",
                 address: "",
-                phoneNumber: ""
+                phoneNumber: "",
+                roleName: "client"
             }
         }
 
@@ -19,11 +24,16 @@ export default class Signup extends React.Component{
 
 
 
-    handleSubmit = e=>{
+    handleSubmit = async e=>{
         e.preventDefault()
-        if (this.state.form.address.isEmpty() && this.state.form.phoneNumber){
+        if (this.state.form.address === "" && this.state.form.phoneNumber === ""){
             alert("You must fill at least one, phone number or address")
         }else{
+
+            console.log(this.state.form)
+
+            let response = await unsignedPost(URLSessions.SIGNUP, this.state.form);
+            console.log(response)
 
         }
     }

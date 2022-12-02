@@ -22,7 +22,7 @@ export default class UnLoggedMenu extends React.Component{
         }
     }
     render(){
-        if (this.state.page === 0) return <Login linkMethod={this.changePage}></Login>
+        if (this.state.page === 0) return <Login linkMethod={this.changePage} roleMethod = {this.props.method}></Login>
         else return <Signup linkMethod = {this.changePage}></Signup>
 
     }
