@@ -25,7 +25,7 @@ let signedPost = async (url, data)=>{
     let config = {
         method: "POST",
         headers: {
-            "Authorization": getToken(),
+            "Authorization": "Bearer "+getToken(),
             "Content-Type":"application/json"
         },
         body: JSON.stringify(data)

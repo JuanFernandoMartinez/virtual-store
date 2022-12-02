@@ -7,6 +7,8 @@ import Avatar from '@mui/material/Avatar';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {useState, useEffect} from "react";
 import axios from "axios";
+import {URLAdmin} from "../../../utils/URLManager";
+import {getToken} from "../../../utils/sessionManager";
 
 
 
@@ -17,11 +19,15 @@ export default function UserList(){
 
 
     useEffect(()=>{
+        let config = {
+            headers: {'Authorization': 'Bearer ' + getToken()},
+
+        }
         axios
-            .get("https://swapi.dev/api/people")
+            .get(URLAdmin.USER_LIST, config)
             .then(res =>{
                 console.log(res.data)
-                setUsers(res.data.results)
+                setUsers(res.data)
             })
             .catch(err=>{
                 console.log(err)
@@ -31,7 +37,7 @@ export default function UserList(){
 
     },[])
 
-    return <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', elevation: 16 }} className="shadow">
+    return <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', elevation: 16 }} className="shadow ">
 
             {users.map(e=> <ListItem>
                 <ListItemAvatar>
@@ -39,7 +45,7 @@ export default function UserList(){
                         <AccountCircleIcon></AccountCircleIcon>
                     </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary={e.name} secondary="usario de la aplicación" />
+                <ListItemText primary={e.email} secondary={e.role.name} />
             </ListItem>)}
 
         </List>

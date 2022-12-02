@@ -35,6 +35,7 @@ export default class AdminMenu extends React.Component{
                 return <div>
                     <Navbar options = {this.navbarOptions} >
                         <UserList></UserList>
+
                     </Navbar>
                 </div>
 

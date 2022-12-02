@@ -2,6 +2,8 @@ import React from "react";
 
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import {signedPost} from "../../../utils/communicator";
+import {URLAdmin} from "../../../utils/URLManager";
 
 
 export default class CreateItem extends React.Component{
@@ -12,8 +14,7 @@ export default class CreateItem extends React.Component{
             form : {
                 name: "",
                 description: "",
-                price: 0,
-                roleName: "admin"
+                price: 0
             }
         }
 
@@ -46,10 +47,13 @@ export default class CreateItem extends React.Component{
 
     handleSubmit = async e=>{
         e.preventDefault()
-        console.log("Sent")
+        let response = await signedPost(URLAdmin.CREATE_ITEM, this.state.form)
+        console.log(response)
     }
     render(){
-        return <div>
+        return <div className="w-50 shadow mb-5">
+
+            <h1 className="text-center">Create Item</h1>
             <form onSubmit={this.handleSubmit}>
                 <div className="w-75 m-auto">
                     <TextField  label="Nombre del producto" variant="outlined" type="text"
@@ -57,20 +61,25 @@ export default class CreateItem extends React.Component{
                                 className="w-100 "
                     />
                 </div>
+                <br/>
                 <div className="w-75 m-auto">
-                    <TextField  label="Descripción" variant="outlined" type="text"
+                    <TextField  label="Descripción" variant="outlined" type="text" multiline
                                 onChange={this.handleChange} name="description" value={this.state.form.email}
                                 className="w-100 "
                     />
                 </div>
+                <br/>
                 <div className="w-75 m-auto">
                     <TextField  label="Precio" variant="outlined" type="number"
                                 onChange={this.handleChange} name="price" value={this.state.form.email}
                                 className="w-100 "
                     />
                 </div>
+                <br/>
 
-                <Button type="submit"> Create Item</Button>
+               <div className="w-25 m-auto ">
+                   <Button className="w-100" variant="contained" type = "submit">Login</Button>
+               </div>
 
             </form>
         </div>
