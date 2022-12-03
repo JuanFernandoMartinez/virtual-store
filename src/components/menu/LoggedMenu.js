@@ -17,7 +17,7 @@ export default class LoggedMenu extends React.Component{
     }
 
     render() {
-        return <div>
+        return <div className="w-100">
             <Store></Store>
         </div>
     }

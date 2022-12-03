@@ -10,17 +10,20 @@ export default class ShoppingItem extends React.Component{
 
 
     render(){
-        return <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', elevation: 16 }} className="shadow ">
+        return <div>
+            <h1 className="text-center">Shopping car</h1>
+            <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', elevation: 16 }} className="shadow ">
 
-            {this.props.items.map(e=> <ListItem>
-                <ListItemAvatar>
-                    <Avatar>
-                        <SportsEsportsIcon></SportsEsportsIcon>
-                    </Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={e.name} secondary={e.price} />
-            </ListItem>)}
+                {this.props.items.map(e=> <ListItem>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <SportsEsportsIcon></SportsEsportsIcon>
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary={e.name} secondary={e.price} />
+                </ListItem>)}
 
-        </List>
+            </List>
+        </div>
     }
 }
