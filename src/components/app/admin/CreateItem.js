@@ -51,9 +51,9 @@ export default class CreateItem extends React.Component{
         console.log(response)
     }
     render(){
-        return <div className="w-50 shadow mb-5 mt-5">
+        return <div className="card p-3 m-auto shadow border rounded w-50">
 
-            <h1 className="text-center">Create Item</h1>
+            <h1 className="text-center my-4">Create Item</h1>
             <form onSubmit={this.handleSubmit}>
                 <div className="w-75 m-auto">
                     <TextField  label="Nombre del producto" variant="outlined" type="text"
@@ -77,7 +77,7 @@ export default class CreateItem extends React.Component{
                 </div>
                 <br/>
 
-               <div className="w-25 m-auto ">
+               <div className="w-50 m-auto my-3">
                    <Button className="w-100" variant="contained" type = "submit">Login</Button>
                </div>
 

@@ -74,8 +74,8 @@ export default class CreateAdmin extends React.Component{
     }
     render(){
         return(
-            <div className="card p-3 m-auto mt-5 shadow border rounded w-50">
-                <h1 className="text-center">Create an Admin account</h1>
+            <div className="card p-3 m-auto shadow border rounded w-50">
+                <h1 className="text-center my-4">Create an Admin account</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className="w-75 m-auto">
                         <TextField  label="Email" variant="outlined" type="email"
@@ -105,8 +105,8 @@ export default class CreateAdmin extends React.Component{
 
 
 
-                    <div className="w-25 m-auto">
-                        <Button variant="contained" type = "submit" className="w-100">Create Admin</Button>
+                    <div className="w-50 m-auto my-3">
+                        <Button variant="contained" type = "submit" className="w-100">Create Account</Button>
                     </div>
                 </form>
 

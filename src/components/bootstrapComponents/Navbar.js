@@ -7,7 +7,7 @@ export default class Navbar extends React.Component{
         return (
            <div>
 
-               <nav className="navbar navbar-expand-lg  navbar-dark bg-dark ">
+               <nav className="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top">
                    <div className="container-fluid">
                        <p className="navbar-brand" >Virtual E-store</p>
                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -26,7 +26,7 @@ export default class Navbar extends React.Component{
                    </div>
                </nav>
 
-              <div className="d-flex">
+              <div className="d-flex vh-100 pt-5">
                   {this.props.children}
               </div>
            </div>
