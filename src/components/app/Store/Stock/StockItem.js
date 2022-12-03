@@ -7,13 +7,9 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 
 export default class StockItem extends React.Component{
 
-    constructor(props) {
-        super(props);
 
-        this.state = {
 
-        }
-    }
+
 
 
     render (){
@@ -41,7 +37,7 @@ export default class StockItem extends React.Component{
                 </CardActionArea>
                 <CardActions>
                     <Button size="small" color="primary" >
-                        Share
+                        Buy
                     </Button>
                 </CardActions>
             </Card>
