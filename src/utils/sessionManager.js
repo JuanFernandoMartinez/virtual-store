@@ -12,7 +12,7 @@ function search(ck){
     if (cookies.length > 2){
         for (let i = 0;  i < cookies.length; i++){
             let aux = cookies[i].split("=")
-            if (aux[0] === " "+ck){
+            if (aux[0].trim() === ck){
                 return aux[1]
             }
         }

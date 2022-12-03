@@ -23,16 +23,19 @@ export default class StockItem extends React.Component{
                     <CardMedia
                         component="img"
                         height="140"
-                        image="/static/images/cards/contemplative-reptile.jpg"
+                        image="https://cdnx.jumpseller.com/la-cali/image/8313008/resize/1200/1200?1652484103"
                         alt="green iguana"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            Lizard
+                            {this.props.name}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                            species, ranging across all continents except Antarctica
+                            {this.props.description}
+                        </Typography>
+
+                        <Typography variant="body2" color="text.secondary">
+                            ${this.props.price}
                         </Typography>
                     </CardContent>
                 </CardActionArea>

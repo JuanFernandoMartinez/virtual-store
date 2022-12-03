@@ -37,7 +37,11 @@ export default function UserList(){
 
     },[])
 
-    return <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', elevation: 16 }} className="shadow ">
+    return <div className="w-25 m-auto">
+        <h1 className="text-center">
+            Lista de usuarios
+        </h1>
+        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', elevation: 16 }} className="shadow m-auto">
 
             {users.map(e=> <ListItem>
                 <ListItemAvatar>
@@ -49,5 +53,6 @@ export default function UserList(){
             </ListItem>)}
 
         </List>
+    </div>
 
 }

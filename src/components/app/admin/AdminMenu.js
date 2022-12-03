@@ -3,6 +3,7 @@ import React from "react";
 import Navbar from "../../bootstrapComponents/Navbar";
 import UserList from "./UserList";
 import CreateItem from "./CreateItem";
+import CreateAdmin from "./CreateAdmin";
 
 export default class AdminMenu extends React.Component{
     constructor(props) {
@@ -34,7 +35,10 @@ export default class AdminMenu extends React.Component{
             case 0:
                 return <div>
                     <Navbar options = {this.navbarOptions} >
-                        <UserList></UserList>
+                        <div className="d-flex flex-wrap border rounded w-100">
+                            <UserList></UserList>
+                            <CreateAdmin> </CreateAdmin>
+                        </div>
 
                     </Navbar>
                 </div>

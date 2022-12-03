@@ -51,7 +51,7 @@ export default class CreateItem extends React.Component{
         console.log(response)
     }
     render(){
-        return <div className="w-50 shadow mb-5">
+        return <div className="w-50 shadow mb-5 mt-5">
 
             <h1 className="text-center">Create Item</h1>
             <form onSubmit={this.handleSubmit}>

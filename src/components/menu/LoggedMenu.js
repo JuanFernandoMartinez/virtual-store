@@ -1,5 +1,6 @@
 
 import React from "react";
+import Store from "../app/Store/Store"
 
 export default class LoggedMenu extends React.Component{
     constructor(props) {
@@ -16,7 +17,9 @@ export default class LoggedMenu extends React.Component{
     }
 
     render() {
-        return <h1>Estas Logeado</h1>
+        return <div>
+            <Store></Store>
+        </div>
     }
 
 }
